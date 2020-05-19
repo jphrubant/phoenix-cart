@@ -5,8 +5,6 @@ defmodule Cart.Cart do
   schema "carts" do
     field :item, :string
     field :quantity, :integer
-
-    timestamps()
   end
 
   def changeset(cart, attrs) do #maybe add an empty model as defalut with \\ %{}
