@@ -6,4 +6,6 @@
       <%= cart.item %>, <%= cart.quantity %>
     </li>
   <% end %>
+
+  <%= link "Add item", to: Routes.cart_path(@conn, :new) %>
 <ul>

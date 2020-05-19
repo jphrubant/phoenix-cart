@@ -10,4 +10,6 @@
     <%= error_tag f, :quantity %>
 
     <%= submit "Add to cart" %>
+
+    <%= link "Back", to: Routes.cart_path(@conn, :index) %>
 <%end %>
