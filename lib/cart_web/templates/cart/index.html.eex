@@ -1,4 +1,9 @@
-<section>
-  Fill your cart with the stuff you need!
-</section>
+<h2>Cart content</h2>
 
+<ul>
+  <%= for cart <- @cart do %>
+    <li>
+      <%= cart.item %>, <%= cart.quantity %>
+    </li>
+  <% end %>
+<ul>

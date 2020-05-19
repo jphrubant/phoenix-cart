@@ -5,7 +5,8 @@ defmodule CartWeb.CartController do
   alias Cart.Cart
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    cart = Repo.all(Cart)
+    render(conn, "index.html", cart: cart)
   end
 
   def new(conn, params) do
@@ -13,12 +14,16 @@ defmodule CartWeb.CartController do
     render(conn, "new.html", changeset: changeset)
   end
 
-  def create(conn, %{"cart" => params}) do
-    changeset = Cart.changeset(%Cart{}, params)
+  def create(conn, %{"cart" => cart}) do
+    changeset = Cart.changeset(%Cart{}, cart)
 
     case Repo.insert(changeset) do
-      {:ok, params} -> IO.inspect(params)
-      {:error, changeset} -> IO.inspect(changeset)
+      {:ok, cart} ->
+        conn
+          |> put_flash(:info, "Item added successfully")
+          |> redirect(to: Routes.cart_path(conn, :index))
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset)
     end
   end
 
