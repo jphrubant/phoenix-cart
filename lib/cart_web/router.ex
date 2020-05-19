@@ -16,8 +16,6 @@ defmodule CartWeb.Router do
   scope "/", CartWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    
     resources "/", CartController
   end
 

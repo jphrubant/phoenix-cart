@@ -3,15 +3,16 @@ defmodule Cart.Cart do
   import Ecto.Changeset
 
   schema "carts" do
-    field :cart, :map
+    field :item, :string
+    field :quantity, :integer
 
     timestamps()
   end
 
-  def changeset(cart, attrs) do
+  def changeset(cart, attrs) do #maybe add an empty model as defalut with \\ %{}
     cart
-     |> cast(attrs, [:map])
-     |> validate_required([:map])
+     |> cast(attrs, [:item, :quantity])
+     |> validate_required([:item, :quantity])
   end
 
 end
