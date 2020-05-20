@@ -1,0 +1,15 @@
+<h1> Update Item </h1>
+<%= form_for @changeset, Routes.cart_path(@conn, :update, @cart), fn f -> %>
+
+    <%= label f, :item %>
+    <%= text_input f, :item, placeholder: "Update item" %>
+    <%= error_tag f, :item %>
+
+    <%= label f, :quantity %>
+    <%= text_input f, :quantity, placeholder: "Update quantity" %>
+    <%= error_tag f, :quantity %>
+
+    <%= submit "Save changes" %>
+
+    <%= link "Back", to: Routes.cart_path(@conn, :index) %>
+<%= end %>

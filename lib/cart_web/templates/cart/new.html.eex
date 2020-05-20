@@ -1,4 +1,4 @@
-<h1> New test form </h1>
+<h1> Add Item </h1>
 <%= form_for @changeset, Routes.cart_path(@conn, :create), fn f -> %>
 
     <%= label f, :item %>

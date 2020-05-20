@@ -4,6 +4,7 @@
   <%= for cart <- @cart do %>
     <li>
       <%= cart.item %>, <%= cart.quantity %>
+      <%= link "edit", to: Routes.cart_path(@conn, :edit, cart) %>
     </li>
   <% end %>
 
