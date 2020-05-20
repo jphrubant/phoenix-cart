@@ -12,4 +12,4 @@
     <%= submit "Save changes" %>
 
     <%= link "Back", to: Routes.cart_path(@conn, :index) %>
-<%= end %>
+<% end %>

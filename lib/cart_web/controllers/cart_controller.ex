@@ -48,4 +48,11 @@ defmodule CartWeb.CartController do
     end
   end
 
+  def delete(conn, %{"id" => id}) do
+    cart = Repo.get!(Cart, id) |> Repo.delete!
+
+    conn
+      |> put_flash(:info, "Item deleted")
+      |> redirect(to: Routes.cart_path(conn, :index))
+  end
 end
